@@ -2,14 +2,10 @@ package BerlinClock;
 
 import org.joda.time.DateTime;
 
-import java.net.SocketPermission;
-
 public class BerlinClockDisplay {
 
     public static void main(String[] args) {
         BerlinClockLogic bc = new BerlinClockLogic();
-
-
         DateTime dt = new DateTime();
 
         int hours = dt.getHourOfDay();
