@@ -1,89 +1,78 @@
 package BerlinClock;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BerlinClockLogic {
 
 
-    public static String getSeconds(int seconds) {
+    public String getSeconds(int seconds) {
         if (seconds % 2 == 0) {
             return "0";
         }
         return "Y";
     }
 
-    public static String getMinutes(int iminute) {
+    public String getMinutes(int iminute) {
         return getIndElement(iminute);
     }
 
-    public static String getHours(int ihours) {
+    public String getHours(int ihours) {
         return getIndElement(ihours);
     }
 
-    public static String getFiveMinutes(int fminute) {
-        if (fminute / 5 == 1) {
-            return "Y0000000000";
-        }
-        if (fminute / 5 == 2) {
-            return "YY000000000";
-        }
-        if (fminute / 5 == 3) {
-            return "YYR00000000";
-        }
-        if (fminute / 5 == 4) {
-            return "YYRY0000000";
-        }
-        if (fminute / 5 == 5) {
-            return "YYRYY000000";
-        }
-        if (fminute / 5 == 6) {
-            return "YYRYYR00000";
-        }
-        if (fminute / 5 == 7) {
-            return "YYRYYRY0000";
-        }
-        if (fminute / 5 == 8) {
-            return "YYRYYRYY000";
-        }
-        if (fminute / 5 == 9) {
-            return "YYRYYRYYR00";
-        }
-        if (fminute / 5 == 10) {
-            return "YYRYYRYYRY0";
-        }
-        if (fminute / 5 == 11) {
-            return "YYRYYRYYRYY";
-        }
-        else {
-            return "00000000000";
-        }
+    public String getFiveMinutes(int fminutes) {
+        int fminute = fminutes / 5;
+
+        Map<Integer, String> map = getElevenStringMap();
+
+        return map.get(fminute);
+    }
+
+    private String getIndElement(int indMinOrHours) {
+        int indMinOrHour = indMinOrHours % 5;
+
+        Map<Integer, String> map = getFourStringMap();
+
+        return map.get(indMinOrHour);
+    }
+
+    public String getFiveHours(int fiveHours) {
+        int fiveHour = fiveHours / 5;
+
+        Map<Integer, String> map = getFourStringMap();
+
+        return map.get(fiveHour);
 
     }
 
-    private static String getIndElement(int indElement) {
-        if (indElement % 5 == 0) {
-            return "0000";
-        } else if (indElement % 5 == 1) {
-            return "Y000";
-        } else if (indElement % 5 == 2) {
-            return "YY00";
-        } else if (indElement % 5 == 3) {
-            return "YYY0";
-        } else {
-            return "YYYY";
-        }
+    private Map<Integer, String> getFourStringMap() {
+        Map<Integer, String> map = new HashMap<Integer, String>();
+
+        map.put(0, "0000");
+        map.put(1, "Y000");
+        map.put(2, "YY00");
+        map.put(3, "YYY0");
+        map.put(4, "YYYY");
+        return map;
     }
 
-    public static String getFiveHours(int fiveHours) {
-        if (fiveHours /5 == 0) {
-            return "0000";
-        } else if (fiveHours / 5 == 1) {
-            return "Y000";
-        } else if (fiveHours / 5 == 2) {
-            return "YY00";
-        } else if (fiveHours / 5 == 3) {
-            return "YYY0";
-        } else  {
-            return "YYYY";
-        }
+    private Map<Integer, String> getElevenStringMap() {
+        Map<Integer, String> map = new HashMap<Integer, String>();
+
+        map.put(0, "00000000000");
+        map.put(1, "Y0000000000");
+        map.put(2, "YY000000000");
+        map.put(3, "YYR00000000");
+        map.put(4, "YYRY0000000");
+        map.put(5, "YYRYY000000");
+        map.put(6, "YYRYYR00000");
+        map.put(7, "YYRYYRY0000");
+        map.put(8, "YYRYYRYY000");
+        map.put(9, "YYRYYRYYR00");
+        map.put(10, "YYRYYRYYRY0");
+        map.put(11, "YYRYYRYYRYY");
+        return map;
     }
 }
 
