@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>Berlin_Clock</groupId>
-    <artifactId>Berlin_Clock</artifactId>
+    <groupId>BerlinClockKata</groupId>
+    <artifactId>BerlinClock</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
@@ -14,11 +14,10 @@
             <version>4.12</version>
         </dependency>
         <dependency>
-              <groupId>joda-time</groupId>
-              <artifactId>joda-time</artifactId>
-              <version>2.9.9</version>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.9</version>
         </dependency>
     </dependencies>
-
 
 </project>
