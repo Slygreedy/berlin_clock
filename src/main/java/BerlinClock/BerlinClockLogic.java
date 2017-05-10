@@ -2,6 +2,8 @@ package BerlinClock;
 
 public class BerlinClockLogic {
 
+    StringBuilding sb = new StringBuilding();
+
     public String getSeconds(int seconds) {
             if (seconds % 2 == 0) {
                 return "0";
@@ -10,23 +12,19 @@ public class BerlinClockLogic {
     }
 
     public String getFiveHours(int hours) {
-        StringBuilder sb = new StringBuilder();
-        return StringBuilding.getFourStringDisplay(hours/5);
+        return sb.getFourStringDisplay(hours/5);
     }
 
 
     public String getHours(int hours) {
-        StringBuilder sb = new StringBuilder();
         return StringBuilding.getFourStringDisplay(hours%5);
     }
 
     public String getFiveMinutes(int minutes) {
-        StringBuilder sb = new StringBuilder();
         return StringBuilding.getElevenStringDisplay(minutes);
     }
 
     public String getMinutes(int minutes) {
-        StringBuilder sb = new StringBuilder();
         return StringBuilding.getFourStringDisplay(minutes%5);
     }
 
