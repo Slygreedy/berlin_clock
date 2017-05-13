@@ -5,8 +5,8 @@ import java.util.List;
 
 public class BerlinClockLogic {
 
-    public static final int FOURLIGHTS = 4;
-    public static final int DIVISOR = 5;
+    private static final int FOURLIGHTS = 4;
+    private static final int DIVISOR = 5;
 
     public String getSeconds(int seconds) {
         if (seconds % 2 == 0) {
@@ -17,18 +17,20 @@ public class BerlinClockLogic {
 
     public String getTopHours(int hours) {
         int lampNumberOn = hours / DIVISOR;
-        List<String> numbers = new ArrayList<String>(lampNumberOn);
+        List<String> numbers = buildClockString(lampNumberOn);
         //StringBuilder sb = buildClockString(lampNumberOn);
-        return numbers.toString();
-        }
+        return format(numbers);
+    }
+
+
 
 
     public String getBottomHours(int hours) {
         int lampNumberOn = hours % DIVISOR;
-        List<String> numbers = new ArrayList<String>(lampNumberOn);
+        List<String> numbers = buildClockString(lampNumberOn);
         //StringBuilder sb = buildClockString(lampNumberOn);
-        return numbers.toString();
-        }
+        return format (numbers);
+    }
 
     public String getTopMins(int minutes) {
         int lampNumberOn = minutes / DIVISOR;
@@ -50,7 +52,7 @@ public class BerlinClockLogic {
         int lampNumberOn = minutes % DIVISOR;
         List<String> numbers = buildClockString(lampNumberOn);
         //StringBuilder sb = buildClockString(lampNumberOn);
-        return numbers.toString();
+        return format (numbers);
     }
 
 
@@ -67,7 +69,14 @@ public class BerlinClockLogic {
         return numbers;
     }
 
-
+    private String format(List<String> numbers) {
+        return numbers.toString()
+                .replace(",", "")  //remove the commas
+                .replace("[", "")  //remove the right bracket
+                .replace("]", "")  //remove the left bracket
+                .replace(" ", "")
+                .trim();
+    }
 }
 
 
