@@ -1,4 +1,5 @@
 
+import BerlinClock.BerlinClockDisplay;
 import BerlinClock.BerlinClockLogic;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,10 +10,12 @@ import static org.junit.Assert.assertThat;
 public class BerlinClockTest {
 
     BerlinClockLogic bc;
+    BerlinClockDisplay bd;
 
     @Before
     public void initialise () {
         bc = new BerlinClockLogic();
+        bd = new BerlinClockDisplay();
     }
 
 
